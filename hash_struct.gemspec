@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "hash_struct"
-  s.version = "0.1"
+  s.version = "0.2"
   s.authors = ["Jakub Šťastný aka Botanicus"]
   s.homepage = "http://github.com/botanicus/hash_struct"
   s.summary = "HashStruct is similar to Struct from Ruby standard library, the difference is that HashStruct.new creates a class which takes a hash with attributes rather than just positional arguments as Struct.new does."
