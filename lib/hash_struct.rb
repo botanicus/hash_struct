@@ -9,7 +9,7 @@ class HashStruct
     included = self.included_modules
     extended = (class << self; self; end).included_modules
 
-    Class.new do
+    Class.new(self) do
       # setup accessors
       attributes.each do |attribute|
         attr_accessor attribute
@@ -20,18 +20,6 @@ class HashStruct
         attributes.each do |attribute, value|
           self.send("#{attribute}=", value)
         end
-      end
-
-      # NOTE: second possible implementation (maybe better) is Class.new(self)
-      # but then we have to used the original new method, so the object will be properly created
-      # include modules
-      (included - self.included_modules).each do |mixin|
-        self.send(:include, mixin)
-      end
-
-      # extended modules
-      (extended - (class << self; self; end).included_modules).each do |mixin|
-        self.extend(mixin)
       end
     end
   end
