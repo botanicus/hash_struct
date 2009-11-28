@@ -26,13 +26,11 @@ class HashStruct
       # but then we have to used the original new method, so the object will be properly created
       # include modules
       (included - self.included_modules).each do |mixin|
-        puts "Including #{mixin}"
         self.send(:include, mixin)
       end
 
       # extended modules
       (extended - (class << self; self; end).included_modules).each do |mixin|
-        puts "Extending #{mixin}"
         self.extend(mixin)
       end
     end
