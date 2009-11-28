@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 class HashStruct
-  # User  = HashStruct.new(:first_name, :last_name)
+  # User  = HashStruct.generate(:first_name, :last_name)
   # @user = User.new(first_name: "Jakub", last_name: "Stastny")
-  def self.new(*attributes)
+  def self.generate(*attributes)
     raise ArgumentError, "you have to specify some attributes" if attributes.empty?
 
     included = self.included_modules

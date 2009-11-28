@@ -1,13 +1,13 @@
 h1. About
 
-HashStruct is similar to Struct from Ruby standard library, the difference is that HashStruct.new creates a class which takes a hash with attributes rather than just positional arguments as Struct.new does.
+@HashStruct@ is similar to @Struct@ from Ruby standard library, the difference is that @HashStruct.generate@ creates a class which takes a hash with attributes rather than just positional arguments as @Struct.new@ does.
 
-The point is that this is behaviour which all the model have, so you can use HashStruct to test thinks which expect something what quacks like a model class.
+The point is that this is behaviour which all the model have, so you can use @HashStruct@ to test thinks which expect something what quacks like a model class.
 
 h1. Usage
 
 <pre>
-User  = HashStruct.new(:first_name, :last_name)
+User  = HashStruct.generate(:first_name, :last_name)
 @user = User.new(first_name: "Jakub", last_name: "Stastny")
 </pre>
 
@@ -19,14 +19,16 @@ module TestMixin
 end
 
 HashStruct.extend(TestMixin)
-User = HashStruct.new(:first_name, :last_name)
+User = HashStruct.generate(:first_name, :last_name)
 User.say_hi
 # => "Hi!"
 </pre>
 
 <pre>
 HashStruct.send(:include, TestMixin)
-User = HashStruct.new(:first_name, :last_name)
+User = HashStruct.generate(:first_name, :last_name)
 User.new.say_hi
 # => "Hi!"
 </pre>
+
+You may want to create your custom class inhterited from @HashStruct@ in case you want to extend it.

@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version = "0.2"
   s.authors = ["Jakub Šťastný aka Botanicus"]
   s.homepage = "http://github.com/botanicus/hash_struct"
-  s.summary = "HashStruct is similar to Struct from Ruby standard library, the difference is that HashStruct.new creates a class which takes a hash with attributes rather than just positional arguments as Struct.new does."
+  s.summary = "HashStruct is similar to Struct from Ruby standard library, the difference is that HashStruct.generate creates a class which takes a hash with attributes rather than just positional arguments as Struct.new does."
   s.description = "" # TODO: long description
   s.cert_chain = nil
   s.email = ["knava.bestvinensis", "gmail.com"].join("@")
