@@ -29,4 +29,23 @@ describe HashStruct do
       instance.first_name.should eql("Jakub")
     end
   end
+
+  describe "inheritance" do
+    before(:each) do
+      @hs = Class.new(HashStruct)
+      @mixin = Module.new { def say_hi() end }
+    end
+
+    it "should inherit all mixins of HashStruct" do
+      @hs.send(:include, @mixin)
+      @struct = @hs.new(:first_name, :last_name)
+      @struct.instance_methods.should include(:say_hi)
+    end
+
+    it "should be extended by all mixins of HashStruct" do
+      @hs.extend(@mixin)
+      @struct = @hs.new(:first_name, :last_name)
+      @struct.methods.should include(:say_hi)
+    end
+  end
 end

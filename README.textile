@@ -10,3 +10,23 @@ h1. Usage
 User  = HashStruct.new(:first_name, :last_name)
 @user = User.new(first_name: "Jakub", last_name: "Stastny")
 </pre>
+
+h1. Inheritance
+
+<pre>
+module TestMixin
+  def say_hi() puts("Hi!") end
+end
+
+HashStruct.extend(TestMixin)
+User = HashStruct.new(:first_name, :last_name)
+User.say_hi
+# => "Hi!"
+</pre>
+
+<pre>
+HashStruct.send(:include, TestMixin)
+User = HashStruct.new(:first_name, :last_name)
+User.new.say_hi
+# => "Hi!"
+</pre>
