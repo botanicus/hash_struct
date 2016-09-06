@@ -1,6 +1,8 @@
 #!/usr/bin/env gem build
 # encoding: utf-8
 
+require "base64"
+
 Gem::Specification.new do |s|
   s.name = "hash_struct"
   s.version = "0.3"
@@ -9,11 +11,12 @@ Gem::Specification.new do |s|
   s.summary = "HashStruct is similar to Struct from Ruby standard library, the difference is that HashStruct.generate creates a class which takes a hash with attributes rather than just positional arguments as Struct.new does."
   s.description = "" # TODO: long description
   s.cert_chain = nil
-  s.email = ["knava.bestvinensis", "gmail.com"].join("@")
+  s.email = Base64.decode64("c3Rhc3RueUAxMDFpZGVhcy5jeg==\n")
   s.has_rdoc = true
 
   # files
-  s.files = ["README.textile", "lib/hash_struct.rb", "spec/hash_struct_spec.rb"]
+  s.files = `git ls-files`.split("\n")
+
   s.require_paths = ["lib"]
 
   # Ruby version
